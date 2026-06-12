@@ -1,248 +1,268 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SPLASH REPUBLIC by AMIGO | The 3D Pool Revelry</title>
-    <meta name="description" content="Splash Republic by Amigo. High-energy luxury pool party. 27 June 2026. Gurugram. 250 capacity." />
-    
-    <!-- Google Fonts for the Flow Party Style -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>SR</text></svg>">
-  </head>
-  <body>
-    <!-- Background Grid Lines -->
-    <div class="bg-grid">
-      <div class="grid-line"></div>
-      <div class="grid-line"></div>
-      <div class="grid-line"></div>
-      <div class="grid-line"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPLASH REPUBLIC
+  </title>
+  <meta name="description"
+    content="Splash Republic by Amigo. High-energy luxury pool party. 27 June 2026. Gurugram. 250 capacity." />
+
+  <!-- Google Fonts for the Flow Party Style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;700;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>SR</text></svg>">
+</head>
+
+<body>
+  <!-- Background Grid Lines -->
+  <div class="bg-grid">
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+  </div>
+
+  <!-- Three.js 3D Emoji Canvas Backdrop -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Custom Cursor -->
+  <div id="custom-cursor" class="custom-cursor"></div>
+  <div id="custom-cursor-ring" class="custom-cursor-ring"></div>
+
+  <!-- Loader Screen -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="loader-brand">SPLASH REPUBLIC</div>
+      <div class="loader-track">
+        <div class="loader-bar" id="loader-bar"></div>
+      </div>
+      <div class="loader-percentage" id="loader-percent">00%</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="header">
+    <a href="#hero" class="brand-logo" id="nav-brand">
+      <img src="/logo.png" class="brand-logo-img" alt="Logo" />
+      AMIGO OFFICIAL
+    </a>
+    <div class="header-details">
+      <span class="detail-item">27.06.26 // GURUGRAM</span>
+      <span class="detail-item">CAPACITY // 250</span>
+    </div>
+    <a href="#tickets" class="nav-cta" id="nav-book-btn">SECURE PASS</a>
+  </header>
+
+  <main id="main-content">
+    <!-- Section 1: Hero -->
+    <section id="hero" class="hero">
+      <!-- Floating Party Scribbles -->
+      <div class="scribble scribble-left">
+        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4">
+          <path d="M10,40 Q30,10 50,40 T90,40 Q70,90 50,60 T10,60" stroke-linecap="round" />
+        </svg>
+      </div>
+      <div class="scribble scribble-right">
+        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3">
+          <path d="M10,10 C30,30 20,70 60,60 C90,50 80,90 95,95" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <div class="hero-video-container">
+        <video class="hero-video" autoplay loop muted playsinline id="hero-bg-video">
+          <source src="/6.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-video-overlay"></div>
+      </div>
+
+      <!-- Large watermark logo behind title -->
+      <div class="hero-logo-bg"></div>
+
+      <div class="hero-content">
+        <div class="hero-meta-top font-mono">
+          <span>EDITION I</span>
+          <span>27 JUNE 2026</span>
+        </div>
+
+        <div class="hero-main-title">
+          <h1 class="hero-title">
+            <span class="title-line">SPLASH</span>
+            <span class="title-line">REPUBLIC</span>
+          </h1>
+          <h2 class="hero-subtitle">by Amigo</h2>
+        </div>
+
+        <!-- Rotating Sticker Badge -->
+        <div class="circular-sticker" id="badge-party">
+          <svg viewBox="0 0 100 100">
+            <path id="circlePath" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="transparent" />
+            <text>
+              <textPath href="#circlePath">AMIGO OFFICIAL • SPLASH REPUBLIC •</textPath>
+            </text>
+          </svg>
+          <div class="sticker-center">PARTY</div>
+        </div>
+
+        <div class="hero-footer font-mono">
+          <div class="hero-scroll-indicator">
+            <span class="scroll-text">SCROLL TO ENTER</span>
+            <div class="scroll-line"></div>
+          </div>
+          <span>250 ATTENDEES ONLY</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scrolling Marquee Ticker (Amigo Official Ribbon) -->
+    <div class="ticker-ribbon">
+      <div class="ticker-track">
+        <span>AMIGO OFFICIAL • SPLASH REPUBLIC • AMIGO OFFICIAL • SPLASH REPUBLIC • AMIGO OFFICIAL • SPLASH REPUBLIC •
+          AMIGO OFFICIAL • SPLASH REPUBLIC • AMIGO OFFICIAL • SPLASH REPUBLIC • AMIGO OFFICIAL • SPLASH REPUBLIC • AMIGO
+          OFFICIAL • SPLASH REPUBLIC • </span>
+      </div>
     </div>
 
-    <!-- Three.js 3D Emoji Canvas Backdrop -->
-    <canvas id="webgl-canvas"></canvas>
-
-    <!-- Custom Cursor -->
-    <div id="custom-cursor" class="custom-cursor"></div>
-    <div id="custom-cursor-ring" class="custom-cursor-ring"></div>
-
-    <!-- Loader Screen -->
-    <div id="loader" class="loader">
-      <div class="loader-content">
-        <div class="loader-brand">SPLASH REPUBLIC</div>
-        <div class="loader-track">
-          <div class="loader-bar" id="loader-bar"></div>
-        </div>
-        <div class="loader-percentage" id="loader-percent">00%</div>
-      </div>
-    </div>
-
-    <!-- Navigation -->
-    <header class="header">
-      <a href="#hero" class="brand-logo" id="nav-brand">
-        <img src="/logo.png" class="brand-logo-img" alt="Logo" />
-        AMIGO OFFICIAL
-      </a>
-      <div class="header-details">
-        <span class="detail-item">27.06.26 // GURUGRAM</span>
-        <span class="detail-item">CAPACITY // 250</span>
-      </div>
-      <a href="#tickets" class="nav-cta" id="nav-book-btn">SECURE PASS</a>
-    </header>
-
-    <main id="main-content">
-      <!-- Section 1: Hero -->
-      <section id="hero" class="hero">
-        <!-- Floating Party Scribbles -->
-        <div class="scribble scribble-left">
-          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4">
-            <path d="M10,40 Q30,10 50,40 T90,40 Q70,90 50,60 T10,60" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="scribble scribble-right">
-          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3">
-            <path d="M10,10 C30,30 20,70 60,60 C90,50 80,90 95,95" stroke-linecap="round"/>
-          </svg>
-        </div>
-
-        <div class="hero-video-container">
-          <video class="hero-video" autoplay loop muted playsinline id="hero-bg-video">
-            <source src="/6.mp4" type="video/mp4" />
-          </video>
-          <div class="hero-video-overlay"></div>
-        </div>
-        
-        <!-- Large watermark logo behind title -->
-        <div class="hero-logo-bg"></div>
-        
-        <div class="hero-content">
-          <div class="hero-meta-top font-mono">
-            <span>EDITION I</span>
-            <span>27 JUNE 2026</span>
-          </div>
-          
-          <div class="hero-main-title">
-            <h1 class="hero-title">
-              <span class="title-line">SPLASH</span>
-              <span class="title-line">REPUBLIC</span>
-            </h1>
-            <h2 class="hero-subtitle">by Amigo</h2>
-          </div>
-
-          <!-- Rotating Sticker Badge -->
-          <div class="circular-sticker" id="badge-party">
-            <svg viewBox="0 0 100 100">
-              <path id="circlePath" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="transparent" />
-              <text><textPath href="#circlePath">AMIGO OFFICIAL • SPLASH REPUBLIC •</textPath></text>
-            </svg>
-            <div class="sticker-center">PARTY</div>
-          </div>
-
-          <div class="hero-footer font-mono">
-            <div class="hero-scroll-indicator">
-              <span class="scroll-text">SCROLL TO ENTER</span>
-              <div class="scroll-line"></div>
-            </div>
-            <span>250 ATTENDEES ONLY</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Scrolling Marquee Ticker (Amigo Official Ribbon) -->
-      <div class="ticker-ribbon">
-        <div class="ticker-track">
-          <span>AMIGO OFFICIAL • SPLASH REPUBLIC • AMIGO OFFICIAL • SPLASH REPUBLIC • AMIGO OFFICIAL • SPLASH REPUBLIC • AMIGO OFFICIAL • SPLASH REPUBLIC • AMIGO OFFICIAL • SPLASH REPUBLIC • AMIGO OFFICIAL • SPLASH REPUBLIC • AMIGO OFFICIAL • SPLASH REPUBLIC • </span>
-        </div>
-      </div>
-
-      <!-- Section 2: Ticket Access -->
-      <section id="tickets" class="tickets">
-        <div class="container">
-          <div class="tickets-header">
-            <span class="section-tag">REGISTRATION</span>
-            <h3 class="section-title">SECURE TICKETS</h3>
-            <p class="section-subtitle">CAPACITY IS FIXED AT 250 GUESTS. ACCESS PATHWAYS ARE DETAILED BELOW.</p>
-          </div>
-
-          <div class="tickets-grid">
-            <!-- Card 1: Direct Access -->
-            <div class="ticket-card-wrapper" style="--parallax-y: -35px;">
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeoWoX3YSk1QNVsA_FG1UBe3op5y7IQlQ0gAklMancclXaVpQ/viewform?usp=send_form" target="_blank" rel="noopener noreferrer" class="ticket-card card-pink" id="ticket-guestpass">
-                <div class="card-content">
-                  <span class="card-num font-mono">01 // VIP</span>
-                  <h4 class="card-title">DIRECT ACCESS</h4>
-                  <p class="card-desc">Accredited guest list application. VIP consideration for community patrons, affiliates, and guest list applicants.</p>
-                  <div class="card-action">
-                    <span class="action-text">APPLY FOR PASS</span>
-                    <span class="action-arrow">→</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Card 2: District -->
-            <div class="ticket-card-wrapper" style="--parallax-y: 0px;">
-              <a href="https://www.district.in/events/-splash-republic-the-ultimate-pool-party--jun27-2026-buy-tickets?disableSSR=true" target="_blank" rel="noopener noreferrer" class="ticket-card card-blue" id="ticket-district">
-                <div class="card-content">
-                  <span class="card-num font-mono">02 // PORTAL</span>
-                  <h4 class="card-title">DISTRICT</h4>
-                  <p class="card-desc">Official ticketing partner. Secure general passes, VIP table reservations, and premium vouchers immediately.</p>
-                  <div class="card-action">
-                    <span class="action-text">SECURE TICKETS</span>
-                    <span class="action-arrow">→</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Card 3: Townscript -->
-            <div class="ticket-card-wrapper" style="--parallax-y: 35px;">
-              <a href="https://www.townscript.com/e/splash-republic-413032" target="_blank" rel="noopener noreferrer" class="ticket-card card-green" id="ticket-townscript">
-                <div class="card-content">
-                  <span class="card-num font-mono">03 // GATEWAY</span>
-                  <h4 class="card-title">TOWNSCRIPT</h4>
-                  <p class="card-desc">Automated reservation pathway. Instant voucher issuance and immediate entry code dispatch.</p>
-                  <div class="card-action">
-                    <span class="action-text">INSTANT ACCESS</span>
-                    <span class="action-arrow">→</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="tickets-warning font-mono">
-            * STAGE CHECK MANDATORY. ACCREDITED GUESTS ONLY. CAPACITY GUARANTEED AT 250.
-          </div>
-        </div>
-      </section>
-
-
-
-      <!-- Section 4: Contact -->
-      <section id="contact" class="contact">
-        <div class="container">
-          <div class="contact-grid">
-            <div class="contact-left">
-              <span class="section-tag">COMMUNICATIONS</span>
-              <h3 class="contact-large-text">JOIN THE REPUBLIC</h3>
-              <p class="contact-sub">For cabana bookings, partner collaborations, and media access.</p>
-            </div>
-            
-            <div class="contact-right font-mono">
-              <div class="contact-group">
-                <span class="contact-label">INSTAGRAM</span>
-                <a href="https://www.instagram.com/the_amigo_official/" target="_blank" rel="noopener noreferrer" class="contact-link" id="link-instagram">@THE_AMIGO_OFFICIAL</a>
-              </div>
-              
-              <div class="contact-group">
-                <span class="contact-label">EMAIL ACCESS</span>
-                <a href="javascript:void(0)" onclick="window.location.href='mailto:cosplayamigoofficials@gmail.com'" class="contact-link" id="link-email">COSPLAYAMIGOOFFICIALS@GMAIL.COM</a>
-              </div>
-
-              <div class="contact-group">
-                <span class="contact-label">COORDINATES</span>
-                <span class="contact-data">SECTOR-59 GURUGRAM, INDIA</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Section 5: Footer -->
-    <footer class="footer">
+    <!-- Section 2: Ticket Access -->
+    <section id="tickets" class="tickets">
       <div class="container">
-        <div class="footer-top">
-          <div class="footer-brand">AMIGO</div>
-          
-          <div class="footer-contact font-mono">
-            <span class="footer-contact-title">CONTACTS // SHUBHAM MOTLA</span>
-            <div class="footer-contact-links">
-              <a href="tel:+918383099088" class="footer-contact-link" id="link-shubham-phone-1">+91 83830 99088</a>
-              <a href="tel:+919354260472" class="footer-contact-link" id="link-shubham-phone-2">+91 93542 60472</a>
-              <a href="https://www.instagram.com/shubham_motla/" target="_blank" rel="noopener noreferrer" class="footer-contact-link" id="link-shubham-insta">@SHUBHAM_MOTLA</a>
-            </div>
+        <div class="tickets-header">
+          <span class="section-tag">REGISTRATION</span>
+          <h3 class="section-title">SECURE TICKETS</h3>
+          <p class="section-subtitle">CAPACITY IS FIXED AT 250 GUESTS. ACCESS PATHWAYS ARE DETAILED BELOW.</p>
+        </div>
+
+        <div class="tickets-grid">
+          <!-- Card 1: Direct Access -->
+          <div class="ticket-card-wrapper" style="--parallax-y: -35px;">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeoWoX3YSk1QNVsA_FG1UBe3op5y7IQlQ0gAklMancclXaVpQ/viewform?usp=send_form"
+              target="_blank" rel="noopener noreferrer" class="ticket-card card-pink" id="ticket-guestpass">
+              <div class="card-content">
+                <span class="card-num font-mono">01 // VIP</span>
+                <h4 class="card-title">DIRECT ACCESS</h4>
+                <p class="card-desc">Accredited guest list application. VIP consideration for community patrons,
+                  affiliates, and guest list applicants.</p>
+                <div class="card-action">
+                  <span class="action-text">APPLY FOR PASS</span>
+                  <span class="action-arrow">→</span>
+                </div>
+              </div>
+            </a>
           </div>
 
-          <div class="footer-meta font-mono">
-            <span>© 2026 AMIGO. ALL RIGHTS RESERVED.</span>
-            <span>Accredited Pool Event</span>
+          <!-- Card 2: District -->
+          <div class="ticket-card-wrapper" style="--parallax-y: 0px;">
+            <a href="https://www.district.in/events/-splash-republic-the-ultimate-pool-party--jun27-2026-buy-tickets?disableSSR=true"
+              target="_blank" rel="noopener noreferrer" class="ticket-card card-blue" id="ticket-district">
+              <div class="card-content">
+                <span class="card-num font-mono">02 // PORTAL</span>
+                <h4 class="card-title">DISTRICT</h4>
+                <p class="card-desc">Official ticketing partner. Secure general passes, VIP table reservations, and
+                  premium vouchers immediately.</p>
+                <div class="card-action">
+                  <span class="action-text">SECURE TICKETS</span>
+                  <span class="action-arrow">→</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 3: Townscript -->
+          <div class="ticket-card-wrapper" style="--parallax-y: 35px;">
+            <a href="https://www.townscript.com/e/splash-republic-413032" target="_blank" rel="noopener noreferrer"
+              class="ticket-card card-green" id="ticket-townscript">
+              <div class="card-content">
+                <span class="card-num font-mono">03 // GATEWAY</span>
+                <h4 class="card-title">TOWNSCRIPT</h4>
+                <p class="card-desc">Automated reservation pathway. Instant voucher issuance and immediate entry code
+                  dispatch.</p>
+                <div class="card-action">
+                  <span class="action-text">INSTANT ACCESS</span>
+                  <span class="action-arrow">→</span>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
-        <div class="footer-bottom font-mono">
-          <span>PRIVATE GATHERING // 27 JUNE 2026</span>
-          <span>DESIGNED & DEVELOPED BY ASTERIQX</span>
-          <a href="#hero" class="back-to-top" id="btn-back-to-top">TOP ↑</a>
+
+        <div class="tickets-warning font-mono">
+          * STAGE CHECK MANDATORY. ACCREDITED GUESTS ONLY. CAPACITY GUARANTEED AT 250.
         </div>
       </div>
-    </footer>
+    </section>
 
-    <!-- JS Entrypoint -->
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+
+    <!-- Section 4: Contact -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-left">
+            <span class="section-tag">COMMUNICATIONS</span>
+            <h3 class="contact-large-text">JOIN THE REPUBLIC</h3>
+            <p class="contact-sub">For cabana bookings, partner collaborations, and media access.</p>
+          </div>
+
+          <div class="contact-right font-mono">
+            <div class="contact-group">
+              <span class="contact-label">INSTAGRAM</span>
+              <a href="https://www.instagram.com/the_amigo_official/" target="_blank" rel="noopener noreferrer"
+                class="contact-link" id="link-instagram">@THE_AMIGO_OFFICIAL</a>
+            </div>
+
+            <div class="contact-group">
+              <span class="contact-label">EMAIL ACCESS</span>
+              <a href="javascript:void(0)" onclick="window.location.href='mailto:cosplayamigoofficials@gmail.com'"
+                class="contact-link" id="link-email">COSPLAYAMIGOOFFICIALS@GMAIL.COM</a>
+            </div>
+
+            <div class="contact-group">
+              <span class="contact-label">COORDINATES</span>
+              <span class="contact-data">SECTOR-59 GURUGRAM, INDIA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Section 5: Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">AMIGO</div>
+
+        <div class="footer-contact font-mono">
+          <span class="footer-contact-title">CONTACTS // SHUBHAM MOTLA</span>
+          <div class="footer-contact-links">
+            <a href="tel:+918383099088" class="footer-contact-link" id="link-shubham-phone-1">+91 83830 99088</a>
+            <a href="tel:+919354260472" class="footer-contact-link" id="link-shubham-phone-2">+91 93542 60472</a>
+            <a href="https://www.instagram.com/shubham_motla/" target="_blank" rel="noopener noreferrer"
+              class="footer-contact-link" id="link-shubham-insta">@SHUBHAM_MOTLA</a>
+          </div>
+        </div>
+
+        <div class="footer-meta font-mono">
+          <span>© 2026 AMIGO. ALL RIGHTS RESERVED.</span>
+          <span>Accredited Pool Event</span>
+        </div>
+      </div>
+      <div class="footer-bottom font-mono">
+        <span>PRIVATE GATHERING // 27 JUNE 2026</span>
+        <span>DESIGNED & DEVELOPED BY ASTERIQX</span>
+        <a href="#hero" class="back-to-top" id="btn-back-to-top">TOP ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS Entrypoint -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
